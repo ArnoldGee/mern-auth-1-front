@@ -19,11 +19,17 @@ const Register = () => {
     e.preventDefault();
     try {
       const newUser = {email, password, repeatPassword, displayName};
-      await axios.post('http://localhost:5000/users/register', newUser);
-      const loginRes = await axios.post('http://localhost:5000/users/login', {
-        email,
-        password,
-      });
+      await axios.post(
+        'https://mern-auth-1-back.herokuapp.com/users/register',
+        newUser
+      );
+      const loginRes = await axios.post(
+        'https://mern-auth-1-back.herokuapp.com/users/login',
+        {
+          email,
+          password,
+        }
+      );
       setUserData({
         token: loginRes.data.token,
         user: loginRes.data.user,

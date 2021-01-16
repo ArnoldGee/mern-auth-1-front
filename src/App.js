@@ -21,14 +21,17 @@ export default function App() {
         token = '';
       }
       const tokenRes = await axios.post(
-        'http://localhost:5000/users/tokenIsValid',
+        'https://mern-auth-1-back.herokuapp.com/tokenIsValid',
         null,
         {headers: {'x-auth-token': token}}
       );
       if (tokenRes.data) {
-        const newUserData = await axios.get('http://localhost:5000/users/', {
-          headers: {'x-auth-token': token},
-        });
+        const newUserData = await axios.get(
+          'https://mern-auth-1-back.herokuapp.com/users/',
+          {
+            headers: {'x-auth-token': token},
+          }
+        );
         console.log(newUserData.data.user)
         setUserData({token, user: newUserData.data.user})
       }
