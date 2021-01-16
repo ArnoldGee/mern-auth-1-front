@@ -1,14 +1,16 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import {Link} from 'react-router-dom';
+import AuthOptions from '../auth/AuthOptions';
 
 const Header = () => {
   return (
-    <div>
+    <header id="header">
       <Link to="/">
-      <h1>MERN to-do app with user auth</h1>
+        <h1 className="title">MERN to-do app with user auth</h1>
       </Link>
-    </div>
-  )
-}
+      <AuthOptions />
+    </header>
+  );
+};
 
-export default Header
+export default Header;
